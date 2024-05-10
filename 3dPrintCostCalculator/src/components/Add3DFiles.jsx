@@ -1,6 +1,12 @@
 import React from "react";
 
-function Add3DFiles() {
+function Add3DFiles({ onFileSelect }) {
+
+  const handleFileSelect = (event) => {
+    onFileSelect(event.target.files[0].name);
+  }
+
+
   return (
     <div className="bg-white shadow-md px-8 pt-6 pb-8 mb-4 flex flex-col">
       <h1 className="mb-2 text-black">View3D.stl</h1>
@@ -10,6 +16,7 @@ function Add3DFiles() {
         type="file"
         id="file"
         name="file"
+        onChange={handleFileSelect}
         className="border py-2 px-3 text-gray-700 leading-tight"
       />
     </div>
